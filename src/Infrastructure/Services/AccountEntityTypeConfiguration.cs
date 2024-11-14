@@ -33,20 +33,5 @@ public class AccountEntityTypeConfiguration : IEntityTypeConfiguration<Account>
 			navigationBuilder.WithOwner().HasForeignKey("account_id");
 		});
 #endif
-#if INCLUDE_ADDRESSES
-		builder.OwnsMany(a => a.Addresses, navigationBuilder =>
-		{
-			navigationBuilder.ToTable("account_addresses");
-			navigationBuilder.Property<string>("Id")
-				.HasColumnType("varchar(36)")
-				.HasColumnName("id")
-				.HasMaxLength(36);
-			navigationBuilder.HasKey("Id");
-			navigationBuilder.Property<string>(postalAddress => postalAddress.Street)
-				.HasColumnName("street").IsRequired()
-				.HasMaxLength(64);
-			navigationBuilder.WithOwner().HasForeignKey("account_id");
-		});
-#endif
 	}
 }

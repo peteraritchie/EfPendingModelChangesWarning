@@ -14,4 +14,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants);INCLUDE_ACCOUNT_HOLDERS</DefineConstants>
+  </PropertyGroup>
+
 </Project>
